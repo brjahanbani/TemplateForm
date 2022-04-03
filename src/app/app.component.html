@@ -2,9 +2,10 @@
 <form #formName="ngForm" (ngSubmit)="onSubmit(email)">
   <label>Email: </label>
   <!-- FormControl  -->
-  <input type="text" placeholder="Please enter email" name="email" email #email="ngModel" required ngModel
-    autocomplete="off" /> <button type="submit">Click Me!</button>
+  <input type="text" placeholder="Please enter email" name="email" email pattern=".+@.+\..+" #email="ngModel" required
+    ngModel autocomplete="off" />
+  <button type="submit">Click Me!</button>
 </form>
-<div>Form is valid: {{formName.valid}}</div>
-<div>Form is values: {{formName.value}}</div>
-<div>Form Group Errors: {{formName?.getControl(email)?.errors | json}}</div>
+<div>Form is valid: {{ formName.valid }}</div>
+<div>Form is values: {{ formName.value }}</div>
+<div>Form Group Errors: {{ formName?.getControl(email)?.errors | json }}</div>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -9,12 +9,13 @@ export class AppComponent {
   title = 'TemplateForm';
 
   email: string = '';
-
+  @ViewChild('email') emailInput: any;
   onClick(event: any) {
-    console.log(event);
+    // console.log(event);
   }
 
   onSubmit(event: any) {
-    console.log(event);
+    // console.log(event);
+    console.log(this.emailInput);
   }
 }
