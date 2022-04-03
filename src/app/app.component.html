@@ -4,7 +4,19 @@
   <!-- FormControl  -->
   <input type="text" placeholder="Please enter email" name="email" email pattern=".+@.+\..+" #email="ngModel" required
     ngModel autocomplete="off" />
-  <button type="submit">Click Me!</button>
+  <ng-container *ngIf="email.invalid && email.touched">
+    <div style="color: rgb(255, 0, 55)" *ngIf="email.errors?.['required']">
+      Please enter your email
+    </div>
+    <div style="color: rgb(255, 0, 55)" *ngIf="email.errors?.['email']">
+      Please enter valid email
+    </div>
+    <div style="color: rgb(255, 0, 55)" *ngIf="email.errors?.['pattern']">
+      Please enter valid pattern
+    </div>
+  </ng-container>
+
+  <button [disabled]="formName.invalid" type="submit">Click Me!</button>
 </form>
 <div>Form is valid: {{ formName.valid }}</div>
 <div>Form is values: {{ formName.value }}</div>
